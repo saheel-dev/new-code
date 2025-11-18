@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Snacks | Hamsafar</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f7f2e8;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #0f6b42;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 600;
+        }
+        .container {
+            padding: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f6b42;
+        }
+    </style>
+</head>
+<body>
+
+<header>Healthy Collection</header>
+
+<div class="container">
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1546549039-0b1b0b1b7d5a" alt="">
+            <h3>Oats & Date Cookies</h3>
+            <p class="price">₹249</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb" alt="">
+            <h3>Multi-Seed Biscuits</h3>
+            <p class="price">₹199</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62" alt="">
+            <h3>Protein Almond Cookies</h3>
+            <p class="price">₹289</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1589307000253-6d5f64a0b14a" alt="">
+            <h3>Atta & Jaggery Crunch</h3>
+            <p class="price">₹219</p>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

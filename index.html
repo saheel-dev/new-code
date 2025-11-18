@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HAMSAFAR — Royal Marketplace</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1221; /* deep navy */
+      --panel:#0f1724;
+      --muted:#9aa4b2;
+      --gold:#c9a94b;
+      --accent:#7f9bff;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#07101a);font-family:Poppins,system-ui,Segoe UI,Roboto;color:#e6eef8;line-height:1.4}
+
+    /* Top bar */
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 36px;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+    .brand{display:flex;gap:16px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#f3e2b6);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;color:#0b1221;font-size:20px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    .brand h1{margin:0;font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:var(--gold);letter-spacing:1px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    .search-bar{flex:1;max-width:640px;margin:0 28px;display:flex;align-items:center;gap:12px}
+    .search-bar input{flex:1;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit;font-size:14px}
+    .search-bar button{padding:10px 14px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer}
+
+    .top-actions{display:flex;gap:12px;align-items:center}
+    .icon-btn{padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;padding:48px 36px}
+    .hero-left{padding:36px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .eyebrow{color:var(--muted);font-size:13px;margin-bottom:12px}
+    .headline{font-family:'Playfair Display',serif;font-size:42px;margin:0 0 16px;color:#fff}
+    .sub{color:var(--muted);margin-bottom:22px}
+    .cta-row{display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--gold),#f1db9b);color:#0b1221}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .hero-right{background:url('https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder') center/cover;border-radius:14px;min-height:260px;position:relative;box-shadow:inset 0 0 120px rgba(0,0,0,0.45)}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.55));border-radius:14px;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;color:#fff}
+    .hero-overlay h3{margin:0;font-family:'Playfair Display',serif}
+    .hero-overlay p{margin:6px 0 0;color:rgba(255,255,255,0.9)}
+
+    /* Products */
+    .section{padding:28px 36px}
+    .section h2{font-family:'Playfair Display',serif;color:var(--gold);margin:0 0 12px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:10px}
+    .card img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+    .card .title{font-weight:600;font-size:15px}
+    .card .meta{font-size:13px;color:var(--muted)}
+    .price-row{display:flex;justify-content:space-between;align-items:center}
+    .price{font-weight:700;color:var(--gold)}
+    .add{padding:8px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer}
+
+    /* footer */
+    .footer{padding:20px 36px;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);display:flex;justify-content:space-between}
+
+    /* responsive */
+    @media (max-width:1000px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero{grid-template-columns:1fr}
+      .hero-right{min-height:220px}
+      .search-bar{max-width:420px}
+    }
+    @media (max-width:600px){
+      .grid{grid-template-columns:1fr}
+      .search-bar{display:none}
+      .topbar{padding:12px}
+      .hero{padding:18px}
+      .brand h1{font-size:18px}
+      .logo{width:48px;height:48px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">HF</div>
+      <div>
+        <h1>HAMSAFAR</h1>
+        <p>Royal Marketplace for Curated Snacks & Gifts</p>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <input id="search" placeholder="Search for cookies, gifts, collections..." />
+      <button onclick="performSearch()">Search</button>
+    </div>
+
+    <div class="top-actions">
+      <div class="icon-btn">Sign in</div>
+      <div class="icon-btn">Cart (0)</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <div class="eyebrow">Exclusively Curated — Now Delivering</div>
+        <h2 class="headline">Royal treats for every celebration</h2>
+        <p class="sub">Handcrafted cookies, artisanal snacks and limited-edition gift boxes. Each item wrapped with regal taste and premium presentation.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="scrollToProducts()">Shop Collection</button>
+          <button class="btn btn-ghost">Explore Stories</button>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-overlay">
+          <h3>Festive Gift Box</h3>
+          <p>Limited run • Beautifully packaged • Free ribbon</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <h2>Featured Products</h2>
+      <div class="grid" id="productGrid">
+        <!-- sample cards -->
+        <div class="card" data-title="Royal Almond Cookies">
+          <img src="https://images.unsplash.com/photo-1549187774-b4e9b0445b9e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="">
+          <div class="title">Royal Almond Cookies</div>
+          <div class="meta">200g • Handmade</div>
+          <div class="price-row">
+            <div class="price">₹349</div>
+            <button class="add">Add</button>
+          </div>
+        </div>
+
+        <div class="card" data-title="Saffron Butter Bites">
+          <img src="https://images.unsplash.com/photo-1606312612868-3f5c9b6d4f3a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="">
+          <div class="title">Saffron Butter Bites</div>
+          <div class="meta">150g • Limited Edition</div>
+          <div class="price-row">
+            <div class="price">₹429</div>
+            <button class="add">Add</button>
+          </div>
+        </div>
+
+        <div class="card" data-title="Golden Pista Rolls">
+          <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="">
+          <div class="title">Golden Pista Rolls</div>
+          <div class="meta">250g • Best Seller</div>
+          <div class="price-row">
+            <div class="price">₹499</div>
+            <button class="add">Add</button>
+          </div>
+        </div>
+
+        <div class="card" data-title="Velvet Chocolate Squares">
+          <img src="https://images.unsplash.com/photo-1606756792921-8bfb5f7e9a5f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="">
+          <div class="title">Velvet Chocolate Squares</div>
+          <div class="meta">180g • Hand-tempered</div>
+          <div class="price-row">
+            <div class="price">₹379</div>
+            <button class="add">Add</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>&copy; HAMSAFAR 2025 — All rights reserved</div>
+    <div>Made with care • Premium packaging • Nationwide delivery</div>
+  </footer>
+
+  <script>
+    function scrollToProducts(){
+      document.getElementById('products').scrollIntoView({behavior:'smooth'});
+    }
+
+    // simple search filter
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', function(){
+      const q = this.value.trim().toLowerCase();
+      filterProducts(q);
+    });
+    function performSearch(){
+      filterProducts(searchInput.value.trim().toLowerCase());
+    }
+    function filterProducts(q){
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(c => {
+        const title = c.getAttribute('data-title') || c.querySelector('.title').innerText;
+        if(!q || title.toLowerCase().includes(q)) c.style.display = '';
+        else c.style.display = 'none';
+      })
+    }
+  </script>
+</body>
+</html>
